@@ -1,29 +1,3 @@
-// import env from './options.env'
-
-// MARIA DB CONFIG
-const mariaDb = {
-    client: 'mysql',
-    connection: {
-        host: '127.0.0.1',
-        user: 'root',
-        password: '',
-        database: 'mariadb_app',
-    },
-};
-
-// SQLITE 3 CONFIG
-// import path from 'path';
-
-// const DBSOURCE = path.join(__dirname, '../DBlite/mydb.sqlite');
-
-// const sqLite = {
-//     client: 'sqlite3',
-//     connection: {
-//     filname: DBSOURCE,
-//     },
-//     useNullAsDefault: true,
-// };
-
 
 
 // MONGO CONFIG
@@ -79,7 +53,7 @@ admin.initializeApp({
     databaseURL: 'https://ecommerce1000ft.firebaseio.com',
 });
 
-export { mariaDb, mongoDb, firebaseConfig, serviceAccount };
+export { mongoDb, firebaseConfig };
 
 
 
