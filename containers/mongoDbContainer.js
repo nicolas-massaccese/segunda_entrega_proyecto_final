@@ -27,6 +27,8 @@ try{
     Cart.create({});
 
 } catch(e){
+    console.log(e);
+    console.log('could not connect');
 
 }
 
