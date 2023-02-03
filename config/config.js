@@ -6,25 +6,11 @@ import mongoose from 'mongoose';
 
 const mongoUser= "nicomassa";
 const mongoPass = "pd4W7kAWS82D5cxL";
-
-let isConnected;
-
-const mongoDb = async () => {
-
-    if(isConnected){
-        await mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@cluster0.q77nmf6.mongodb.net/?retryWrites=true&w=majority`);
-        isConnected = true;
-        return;
-    }
-    console.log('Connected');
-    return;
-};
-// const mongoDb = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0.q77nmf6.mongodb.net/?retryWrites=true&w=majority`
+const dataBase = "ecommerce";
+const mongoDbConfig = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0.q77nmf6.mongodb.net/${dataBase}`;
 
 
 // FIREBASE CONFIG
-
-
 
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
@@ -53,7 +39,7 @@ admin.initializeApp({
     databaseURL: 'https://ecommerce1000ft.firebaseio.com',
 });
 
-export { mongoDb, firebaseConfig };
+export { mongoDbConfig, firebaseConfig };
 
 
 

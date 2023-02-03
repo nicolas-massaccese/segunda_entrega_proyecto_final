@@ -1,4 +1,4 @@
-import { mongoDb } from '../config/config.js';
+import { mongoDbConfig } from '../config/config.js';
 
 import Product from '../models/productSchema.js';
 import Cart from '../models/cartSchema.js';
@@ -17,7 +17,7 @@ try{
     mongoose.set("strictQuery", false);
 
     mongoose.connect(
-        mongoDb,
+        mongoDbConfig,
         { useNewUrlParser: true, useUnifiedTopology: true }
     );
     console.log("mongoose connected");
@@ -37,8 +37,45 @@ class MongooseContainer {
 
     }
 
+    read = async () => {
+        
+    
+        const querySnapshot = await Product.read(productToAdd);
+    
+        if (!querySnapshot) {
+            console.log('coleccion vacia');Product
+        } else {
+            querySnapshot.forEach(element => {
+                console.log(JSON.stringify(.read()), null, 2);
+            });
+        }
+    };
+    
     create = async () => {
-        this.route.create(productToAdd);
+        const db = admin.firestore();
+        const query = db.collection(this.route);
+    
+        await Promise.all([
+            query.doc('bolso').set({ name:'bolso'})
+        ]);
+        console.log('create done');
+    };
+    
+    
+    update = async () => {
+        const db = admin.firestore();
+        const query = db.collection(this.route);
+    
+        await query.doc('bolso').set({ newName: 'bolso de vuelo'}, {merge: true});
+    
+    };
+    
+    deleteProduct = async () => {
+        const db = admin.firestore();
+        const query = db.collection(this.route);
+    
+        await query.doc('bolso').delete();
+    
     };
 
 
